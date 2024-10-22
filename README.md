@@ -11,8 +11,9 @@ la herramienta ```Bito CLI```. Para su instalación y configuración se puede re
 
 1. Clonar el repositorio ```git clone https://github.com/b1jaimes89/test-prompt-back.git```
 2. Instalar dependencias ```npm install```
+3. Crea el archivo ```.env```. Usa como base el archivo ```.env.template```
 
 ## Ejecución
 
-1. Navega a la carpeta ```cd react-openai-backend```
+1. Navega a la carpeta ```cd test-prompt-back```
 2. Ejecutar ```npm run start:dev```
