@@ -1,5 +1,5 @@
 
-# Test Prompt
+# RVIA-Prompt
 
 ## Prerequisitos
 
@@ -9,11 +9,30 @@ la herramienta ```Bito CLI```. Para su instalación y configuración se puede re
 
 ## Instalación en Dev
 
-1. Clonar el repositorio ```git clone https://github.com/b1jaimes89/test-prompt-back.git```
-2. Instalar dependencias ```npm install```
-3. Crea el archivo ```.env```. Usa como base el archivo ```.env.template```
+1. Clonar el repositorio
+
+    ```bash
+    git clone https://github.com/b1jaimes89/RVIA-Prompt-Back.git
+    ```
+
+2. Navega a la carpeta
+
+    ```bash
+    cd RVIA-Prompt-Back
+    ```
+
+3. Instalar dependencias
+
+    ```bash
+    npm install
+    ```
+
+4. Crea el archivo ```.env```. Usa como base el archivo ```.env.template```
 
 ## Ejecución
 
-1. Navega a la carpeta ```cd test-prompt-back```
-2. Ejecutar ```npm run start:dev```
+Para iniciar la aplicación en modo de desarrollo, ejecuta el comando:
+
+```bash
+npm run start:dev
+```
