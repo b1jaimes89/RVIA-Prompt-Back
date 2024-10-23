@@ -9,9 +9,9 @@ import { diskStorage } from 'multer';
 
 @Controller('bito')
 export class BitoController {
+  
   constructor(private readonly bitoService: BitoService) {}
 
-  
   @Post('base')
   create(@Body() bitoDto: BitoDto) {
     return this.bitoService.useBito(bitoDto);
@@ -32,14 +32,18 @@ export class BitoController {
       }
     })
   }))
-  test(@Body() prompt: BitoDto, @UploadedFile() file: Express.Multer.File){
+  async test(@Body() prompt: BitoDto, @UploadedFile() file: Express.Multer.File){
     const txtFilePath = path.join(__dirname,'..','..','prompts','promt.txt');
     fs.writeFileSync(txtFilePath,prompt.prompt);
+    
+    try {
+      const response = await this.bitoService.useBitoFile(txtFilePath, file.path); 
+      fs.unlinkSync(file.path);
+      fs.unlinkSync(txtFilePath);
 
-    return this.bitoService.useBitoFile(txtFilePath,file.path);
-    // return {
-    //   txtFilePath,
-    //   uploadedFilePath: file.path
-    // }
+      return response;
+    } catch (error) {
+      throw new Error(`Error procesando el archivo: ${error.message}`);
+    }
   }
 }
